@@ -2,21 +2,21 @@
 
 <div class="row">
   <div class="section">
-  <% @products.each do |product| %>
-    <div class="col s4">
-      <h4><%= link_to product.name, product_path(product), remote: true %></h4>
-      <p><%= number_to_currency product.price %></p>
-      <div class='product_details' id='product_details_<%= product.id %>'>
-        <p><%= product.description %></p>
+    <% @products.each do |product| %>
+      <div class="col s4">
+        <h4><%= link_to product.name, product_path(product), remote: true %></h4>
+        <p><%= number_to_currency product.price %></p>
+        <div class='product_details' id='product_details_<%= product.id %>'>
+          <p><%= product.description %></p>
 
-        <%= image_tag product.image.url %>
+          <%= image_tag product.image.url %>
+        </div>
+        <%= form_for @order_item, id: 'add_to_cart_form', remote: true do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", class: "add_to_cart_field" %>
+          <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+        <% end %>
       </div>
-      <%= form_for @order_item, id: 'add_to_cart_form', remote: true do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", class: "add_to_cart_field" %>
-        <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

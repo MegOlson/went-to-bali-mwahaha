@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     respond_to do |format|
-      format.html { redirect_to product_path(product) }
+      format.html
       format.js
     end
   end
@@ -22,10 +22,29 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to '/'
+      redirect_to '/', :notice => 'Successfully added new product'
     else
       render :new
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to '/admin', :notice => 'Successfully updated product'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to '/admin', :notice => 'Successfully deleted product'
   end
 
   private
