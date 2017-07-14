@@ -2,8 +2,8 @@
 
 #### AJAX
 - [x] Add products to shopping cart - update item count
-- [ ] Click a product to show product details
-  - [ ] Add Paperclip for images
+- [x] Click a product to show product details
+  - [x] Add Paperclip for images
 - [x] Remove items from shopping cart - update total price
 
 #### Refactor
