@@ -8,7 +8,27 @@
 
 ## Description
 
-Refactoring Ecommerce is a web application for an ecommerce site. This project was an exercise in refactoring others' code. Added AJAX and validations. The application is built with Ruby and Rails, with data being stored in PostgreSQL.
+Refactoring Ecommerce is a web application for an ecommerce site. This project was an exercise in refactoring others' code. The application is built with Ruby and Rails, with data being stored in PostgreSQL.
+
+## Refactoring Changes
+
+* Added AJAX:
+  * Adding products to shopping cart
+  * Showing product details
+  * Removing items from shopping cart
+* Added Admin page with authorizations to allow admins to add/edit/delete products
+  * Link to Admin page in navbar
+* Added image attachment attribute to Product
+  * Added Paperclip for image files
+* Added flash messages:
+   * Sign up, sign in, sign out
+   * Add, update, delete products
+* Adjust new Product form to allow for decimal values
+* Added validations:
+  * Order items - quantity must be positive
+  * Products - price must be positive
+  * User - password complexity
+* Added error messages if any validations are not met during object creation
 
 ## Setup/Installation Requirements
 
